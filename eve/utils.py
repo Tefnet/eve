@@ -30,7 +30,7 @@ class Config(object):
             # will return 'working outside of application context' if the
             # current_app is not available yet
             return app.config.get(name)
-        except:
+        except RuntimeError:
             # fallback to the module-level default value
             return getattr(eve, name)
 
